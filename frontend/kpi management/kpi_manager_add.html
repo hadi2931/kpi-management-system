@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New KPI - KPI System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS (Dark Theme) -->
+    <link rel="stylesheet" href="style_kpi_manager.css">
+    <style>
+        /* Minor page-specific adjustments if needed */
+        .form-section-divider {
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            border-top: 1px solid #2f3136; /* Darker divider */
+        }
+        .card-body label {
+            font-weight: 500;
+            color: #b9bbbe; /* Lighter grey for labels */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4 shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand font-weight-bold" href="#">KPI Management System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html"><i class="fas fa-tachometer-alt mr-1"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="kpi_manager_view.html"><i class="fas fa-list-alt mr-1"></i>Manage KPIs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html"><i class="fas fa-user-circle mr-1"></i>Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.html"><i class="fas fa-sign-out-alt mr-1"></i>Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4 mb-5">
+        <header class="mb-4">
+            <h1 class="page-title h2">Add New Key Performance Indicator</h1>
+            <p class="text-muted page-subtitle">Define the details for the new KPI.</p>
+        </header>
+
+        <div class="card kpi-list-card shadow-sm">
+            <div class="card-body p-4">
+                <form id="addKpiForm" novalidate>
+
+                    <!-- Basic Information -->
+                    <h5>Basic Information</h5>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="kpiName">KPI Name</label>
+                            <input type="text" class="form-control" id="kpiName" required>
+                            <div class="invalid-feedback">KPI Name is required.</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="kpiOwner">Owner (Team/Individual)</label>
+                            <input type="text" class="form-control" id="kpiOwner" required>
+                             <div class="invalid-feedback">Owner is required.</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="kpiDepartment">Department</label>
+                        <input type="text" class="form-control" id="kpiDepartment" required>
+                         <div class="invalid-feedback">Department is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="kpiDescription">Description</label>
+                        <textarea class="form-control" id="kpiDescription" rows="3" required></textarea>
+                        <div class="invalid-feedback">Description is required.</div>
+                    </div>
+
+                    <!-- Target & Calculation -->
+                    <hr class="form-section-divider">
+                    <h5>Target & Calculation</h5>
+                    <div class="form-row">
+                         <div class="form-group col-md-4">
+                            <label for="kpiTarget">Target Value</label>
+                            <input type="text" class="form-control" id="kpiTarget" placeholder="e.g., 95%, <$10K, >=50" required>
+                            <div class="invalid-feedback">Target Value is required.</div>
+                        </div>
+                         <div class="form-group col-md-4">
+                            <label for="kpiTargetType">Target Type</label>
+                            <select id="kpiTargetType" class="form-control custom-select">
+                                <option selected value="Percentage">Percentage (%)</option>
+                                <option value="Number">Number</option>
+                                <option value="Currency">Currency ($)</option>
+                                <option value="Ratio">Ratio</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="kpiFrequency">Update Frequency</label>
+                             <select id="kpiFrequency" class="form-control custom-select">
+                                <option selected value="Monthly">Monthly</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Quarterly">Quarterly</option>
+                                <option value="Annually">Annually</option>
+                                <option value="Daily">Daily</option>
+                            </select>
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label for="kpiCalculationMethod">Calculation Method</label>
+                        <textarea class="form-control" id="kpiCalculationMethod" rows="2"></textarea>
+                    </div>
+                     <div class="form-group">
+                        <label for="kpiDataSource">Data Source(s)</label>
+                        <input type="text" class="form-control" id="kpiDataSource" placeholder="e.g., Analytics, Billing System, HRIS">
+                    </div>
+
+                     <!-- Thresholds -->
+                    <hr class="form-section-divider">
+                    <h5>Performance Thresholds</h5>
+                     <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="kpiThresholdGood">Good / Achieved</label>
+                            <input type="text" class="form-control" id="kpiThresholdGood" placeholder="e.g., >= 95%">
+                        </div>
+                         <div class="form-group col-md-4">
+                            <label for="kpiThresholdWarning">Warning / At-Risk</label>
+                            <input type="text" class="form-control" id="kpiThresholdWarning" placeholder="e.g., 90-94%">
+                        </div>
+                         <div class="form-group col-md-4">
+                            <label for="kpiThresholdBad">Bad / Off-Track</label>
+                            <input type="text" class="form-control" id="kpiThresholdBad" placeholder="e.g., < 90%">
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <hr class="mt-4">
+                    <div class="text-right">
+                        <a href="kpi_manager_view.html" class="btn btn-outline-secondary mr-2">Cancel</a>
+                        <button type="submit" class="btn btn-success"><i class="fas fa-save mr-2"></i>Save New KPI</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center text-muted mt-5 py-3">
+             <p class="mb-0">© <span id="currentYear"></span> KPI Management System. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script_add_kpi.js"></script> <!-- Specific JS for this form -->
+    <script> document.getElementById('currentYear').textContent = new Date().getFullYear(); </script>
+</body>
+</html>

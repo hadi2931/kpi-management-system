@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPI Details - KPI System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS (Dark Theme) -->
+    <link rel="stylesheet" href="style_kpi_manager.css">
+     <style>
+        /* Minor page-specific adjustments if needed */
+         #kpiDetailContent h5 {
+            color: #7289da; /* Header color within details */
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            border-bottom: 1px solid #2f3136;
+            padding-bottom: 0.5rem;
+         }
+         #kpiDetailContent .detail-group {
+             margin-bottom: 1rem;
+         }
+         #kpiDetailContent .detail-label {
+             font-weight: 600;
+             color: #b9bbbe;
+             display: block;
+             margin-bottom: 0.25rem;
+         }
+          #kpiDetailContent .detail-value {
+             color: #dcddde;
+             word-break: break-word; /* Prevent long strings overflowing */
+         }
+         #kpiDetailContent .badge {
+             font-size: 1rem; /* Larger status badge */
+         }
+     </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4 shadow-sm">
+        <!-- ... (same navbar structure as add_kpi.html) ... -->
+         <div class="container-fluid">
+            <a class="navbar-brand font-weight-bold" href="#">KPI Management System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html"><i class="fas fa-tachometer-alt mr-1"></i>Dashboard</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="kpi_manager_view.html"><i class="fas fa-list-alt mr-1"></i>Manage KPIs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user-circle mr-1"></i>Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="logout.html"><i class="fas fa-sign-out-alt mr-1"></i>Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4 mb-5">
+        <header class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+             <div>
+                <h1 class="page-title h2" id="kpiDetailHeader">KPI Details</h1>
+                <p class="text-muted page-subtitle">Detailed view of a specific Key Performance Indicator.</p>
+            </div>
+             <div>
+                <a href="#" id="editKpiLink" class="btn btn-secondary shadow-sm mr-2" style="display: none;">
+                    <i class="fas fa-edit mr-2"></i>Edit this KPI
+                </a>
+                 <a href="kpi_manager_view.html" class="btn btn-outline-secondary shadow-sm">
+                    <i class="fas fa-arrow-left mr-2"></i>Back to List
+                </a>
+            </div>
+        </header>
+
+        <div class="card kpi-list-card shadow-sm">
+            <div class="card-body p-4">
+                <div id="kpiDetailContent">
+                    <!-- Loading State / Error Message -->
+                     <div id="loadingMessage" class="text-center py-5">
+                        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <p class="mt-3 text-muted">Loading KPI details...</p>
+                    </div>
+                    <div id="errorMessage" class="alert alert-danger" style="display: none;"></div>
+
+                    <!-- KPI Data Sections (Populated by JS) -->
+                    <section id="kpiDataSection" style="display: none;">
+
+                        <h4 id="kpiNameDisplay" class="mb-3"></h4>
+
+                        <h5><i class="fas fa-info-circle mr-2"></i>Basic Information</h5>
+                        <div class="row detail-group">
+                            <div class="col-md-4"><span class="detail-label">Owner:</span> <span id="kpiOwner" class="detail-value"></span></div>
+                            <div class="col-md-4"><span class="detail-label">Department:</span> <span id="kpiDepartment" class="detail-value"></span></div>
+                            <div class="col-md-4"><span class="detail-label">Last Updated:</span> <span id="kpiLastUpdated" class="detail-value"></span></div>
+                        </div>
+                         <div class="detail-group">
+                            <span class="detail-label">Description:</span>
+                            <p id="kpiDescription" class="detail-value text-muted"></p>
+                        </div>
+
+
+                        <h5><i class="fas fa-bullseye mr-2"></i>Target & Performance</h5>
+                         <div class="row detail-group">
+                            <div class="col-md-4"><span class="detail-label">Target (<span id="kpiTargetType"></span>):</span> <span id="kpiTarget" class="detail-value font-weight-bold"></span></div>
+                            <div class="col-md-4"><span class="detail-label">Current Value:</span> <span id="kpiCurrentValue" class="detail-value font-weight-bold"></span></div>
+                             <div class="col-md-4"><span class="detail-label">Current Status:</span> <span id="kpiStatus" class="detail-value badge p-2"></span></div>
+                        </div>
+
+
+                         <h5><i class="fas fa-calculator mr-2"></i>Definition & Source</h5>
+                         <div class="row detail-group">
+                             <div class="col-md-6">
+                                <span class="detail-label">Calculation Method:</span>
+                                <p id="kpiCalculationMethod" class="detail-value text-muted"></p>
+                             </div>
+                            <div class="col-md-6">
+                                <span class="detail-label">Update Frequency:</span>
+                                <p id="kpiFrequency" class="detail-value text-muted"></p>
+                                <span class="detail-label">Data Source(s):</span>
+                                <p id="kpiDataSource" class="detail-value text-muted"></p>
+                            </div>
+                        </div>
+
+
+                         <h5><i class="fas fa-chart-line mr-2"></i>Thresholds</h5>
+                         <ul class="list-unstyled detail-group">
+                            <li><span class="detail-label">Good:</span> <span id="kpiThresholdGood" class="detail-value"></span></li>
+                            <li><span class="detail-label">Warning:</span> <span id="kpiThresholdWarning" class="detail-value"></span></li>
+                            <li><span class="detail-label">Bad/Critical:</span> <span id="kpiThresholdBad" class="detail-value"></span></li>
+                         </ul>
+
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+         <footer class="text-center text-muted mt-5 py-3">
+             <p class="mb-0">© <span id="currentYear"></span> KPI Management System. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script_view_kpi_details.js"></script> <!-- Specific JS for this page -->
+    <script> document.getElementById('currentYear').textContent = new Date().getFullYear(); </script>
+</body>
+</html>

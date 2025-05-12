@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logging Out - KPI System</title>
+    <!-- Bootstrap CSS (Optional, for styling the message) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS (Using dark theme for consistency) -->
+    <link rel="stylesheet" href="style_kpi_manager.css">
+    <style>
+        /* Center the message */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* background-color already set in style_kpi_manager.css */
+        }
+        .logout-message {
+            text-align: center;
+            color: #dcddde; /* Light text from dark theme */
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="logout-message">
+        <div class="spinner-border text-primary mb-3" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <h2>Logging Out...</h2>
+        <p class="text-muted">Please wait while we log you out securely.</p>
+    </div>
+
+    <!-- Logout script MUST run after the message is potentially visible -->
+    <script src="script_logout.js"></script>
+</body>
+</html>
