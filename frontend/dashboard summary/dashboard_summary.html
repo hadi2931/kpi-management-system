@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPI Performance Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container-fluid mt-4">
+        <h1 class="dashboard-main-title text-center mb-1">KPI Performance Dashboard </h1>
+        <h5 class="dashboard-subtitle text-center mb-4">KPI PERFORMANCE DASHBOARD FOR KEY KPIs</h5>
+
+        <div class="row">
+            <!-- Left Column -->
+            <div class="col-lg-3">
+                <div class="card overall-status-card mb-4"> 
+                    <div class="card-header">OVERALL STATUS</div>
+                    <div class="card-body">
+                        <div class="status-item">
+                            <span class="status-label">SCHEDULE</span>
+                            <span class="status-value">45%</span>
+                            <span class="status-text">ahead</span>
+                        </div>
+                        <hr class="status-hr">
+                        <div class="status-item">
+                            <span class="status-label">PROGRESS</span>
+                            <span class="status-value">30%</span>
+                            <span class="status-text">complete</span>
+                        </div>
+                        <hr class="status-hr">
+                        <div class="status-item">
+                            <span class="status-label">BUDGET</span>
+                            <span class="status-value">26%</span>
+                            <span class="status-text">remaining</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header">BUDGET</div>
+                    <div class="card-body">
+                        <canvas id="budgetChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle Column -->
+            <div class="col-lg-3">
+                <div class="card mb-4">
+                    <div class="card-header">PROJECTS / TASKS</div>
+                    <div class="card-body">
+                        <canvas id="projectsTasksChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header">RISKS</div>
+                    <div class="card-body">
+                        <canvas id="risksChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header">ISSUES</div>
+                    <div class="card-body">
+                        <canvas id="issuesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-lg-6">
+                <div class="card mb-4">
+                    <div class="card-header">MONTHLY REVENUE</div>
+                    <div class="card-body">
+                        <canvas id="monthlyRevenueChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header">QUARTERLY REVENUE</div>
+                    <div class="card-body">
+                        <canvas id="quarterlyRevenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register New Account - KPI System</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style_register.css">
+    <!-- Or link to your main style.css if you add register-specific styles there -->
+</head>
+<body>
+    <div class="container register-container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card register-card shadow-sm">
+                    <div class="card-header text-center">
+                        <h3>Create New Account</h3>
+                        <p class="text-muted">Join our KPI Management System</p>
+                    </div>
+                    <div class="card-body">
+                        <form id="registerForm">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="Choose a strong password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="termsCheck" required>
+                                <label class="form-check-label" for="termsCheck">I agree to the <a href="#" data-toggle="modal" data-target="#termsModal">Terms and Conditions</a></label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Register Account</button>
+                        </form>
+                        <hr>
+                        <div class="text-center">
+                            <p class="mb-0">Already have an account? <a href="login.html">Login here</a></p>
+                            <!-- Assuming you'll have a login.html page -->
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center text-muted mt-3">© 2024 KPI Management System</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>1. Acceptance of Terms</strong></p>
+                    <p>By registering for and/or using the KPI Management System ("Service") in any manner, you agree to these Terms and Conditions...</p>
+                    <p><strong>2. Registration</strong></p>
+                    <p>You must provide accurate, current, and complete information during the registration process...</p>
+                    <p><strong>3. User Conduct</strong></p>
+                    <p>You are responsible for all your activity in connection with the Service...</p>
+                    <p><em>(Add more comprehensive terms here)</em></p>
+                    <p>Last updated: [Current Date]</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script_register.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f7f6; /* Consistent light background */
+    color: #343a40;
+}
+
+.kpi-manager-container .page-title {
+    color: #007bff; /* Primary blue for main title */
+    font-weight: 600;
+}
+.kpi-manager-container .page-subtitle {
+    font-size: 0.95rem;
+}
+
+.kpi-card {
+    border: none;
+    border-radius: 8px;
+}
+
+.kpi-card .card-header {
+    background-color: #ffffff; /* White header for card */
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: 600;
+    color: #495057;
+}
+
+.kpi-table th {
+    background-color: #f8f9fa; /* Light gray for table headers */
+    color: #495057;
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.kpi-table td {
+    vertical-align: middle;
+    font-size: 0.9rem;
+}
+
+.kpi-table .badge {
+    font-size: 0.8rem;
+    padding: 0.4em 0.6em;
+}
+
+.kpi-table .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    margin-right: 5px; /* Spacing between action buttons */
+}
+.kpi-table .btn-sm i {
+    margin-right: 3px;
+}
+
+
+/* Modal Styling */
+#kpiDetailsModal .modal-header {
+    background-color: #007bff; /* Primary blue for modal header */
+    color: white;
+}
+#kpiDetailsModal .modal-header .close {
+    color: white;
+    opacity: 0.9;
+    text-shadow: none;
+}
+#kpiDetailsModal .modal-title {
+    font-weight: 600;
+}
+
+#kpiDetailsBody h6 {
+    color: #007bff;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+#kpiDetailsBody p {
+    margin-bottom: 0.5rem;
+    color: #495057;
+}
+#kpiDetailsBody .detail-label {
+    font-weight: 500;
+    color: #6c757d;
+}
+#kpiDetailsBody .detail-value {
+    color: #343a40;
+}
+#kpiDetailsBody .data-point {
+    background-color: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    border: 1px solid #e9ecef;
+}
+#kpiDetailsBody .data-point .detail-label {
+    display: block;
+    font-size: 0.8em;
+    margin-bottom: 2px;
+}
+
+/* Status Specific Colors (Example) */
+.badge-success { background-color: #28a745; } /* Achieved */
+.badge-warning { background-color: #ffc107; color: #212529 !important; } /* Off-Track, At Risk */
+.badge-danger { background-color: #dc3545; } /* Critical */
+.badge-info { background-color: #17a2b8; } /* In Progress, Active */
+.badge-secondary { background-color: #6c757d; } /* Inactive, On Hold */
+
+/* Ensure action buttons in table have some space */
+.kpi-table td:last-child {
+    white-space: nowrap;
+}

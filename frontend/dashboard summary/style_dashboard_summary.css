@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    /* Background Image - Replace URL with your desired image */
+    background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGF0YSUyMGFuYWx5c2lzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60'); /* Example data analysis background */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keeps background fixed during scroll */
+    /* Add a subtle overlay to make text more readable if needed */
+    position: relative; */ /* If using pseudo-element for overlay*/
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3); // Dark overlay
+    z-index: -1; 
+}
+ 
+
+.container-fluid {
+    /* If using overlay, ensure content is above it */
+    /* position: relative;
+    z-index: 1; */
+}
+
+.dashboard-main-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #ffffff; /* White text for better contrast on dark/image background */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Subtle shadow for readability */
+}
+
+.dashboard-subtitle {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #cce5ff; /* Lighter blue for contrast */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.card {
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Slightly more pronounced shadow */
+    /* Make cards slightly transparent to blend with background */
+    background-color: rgba(255, 255, 255, 0.95); /* Adjust opacity as needed */
+}
+
+.card-header {
+    background-color: rgba(248, 249, 250, 0.85); /* Slightly transparent light gray */
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #343a40; /* Darker text for header */
+    text-transform: uppercase;
+    padding: 0.6rem 1rem; /* Slightly more padding */
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+/* --- Overall Status specific styles --- */
+.overall-status-card .card-body {
+    padding-top: 0.5rem; /* Reduce top padding if yellow lines are close to header */
+    padding-bottom: 0.5rem;
+}
+
+.status-item {
+    display: flex;
+    align-items: center; /* Vertically align items in the middle */
+    padding: 0.8rem 0.5rem; /* Increased padding for a less cramped look */
+    position: relative; /* For the ::before pseudo-element */
+    border-left: 4px solid #ffd700; /* Yellow accent line, adjust color (e.g., #FFC107 for Bootstrap yellow) */
+    margin-bottom: 0.5rem; /* Space below each item before the hr */
+    background-color: rgba(255, 255, 255, 0.1); /* Very subtle background highlight for the item */
+    border-radius: 3px; /* Slightly rounded corners for the item */
+}
+.status-item:last-child {
+    margin-bottom: 0;
+}
+
+.status-label {
+    font-size: 0.85rem; /* Slightly smaller label */
+    color: #5a5a5a; /* Darker muted gray */
+    width: 70px; /* Adjusted width */
+    font-weight: 500;
+    margin-left: 10px; /* Space after the yellow line */
+}
+
+.status-value {
+    font-size: 1.8rem; /* Larger percentage value */
+    font-weight: bold;
+    color: #2c3e50; /* Darker, prominent color */
+    margin-left: 15px;
+    margin-right: 10px;
+    line-height: 1; /* Ensure it aligns well */
+}
+
+.status-text {
+    font-size: 0.85rem;
+    color: #7f8c8d; /* Softer gray */
+    font-style: italic; /* Optional: italicize for distinction */
+}
+
+.status-hr {
+    border: 0;
+    height: 1px;
+    background-color: #e0e0e0; /* Lighter gray for HR */
+    margin-top: 0.3rem; /* Reduced margin */
+    margin-bottom: 0.3rem;
+}
+/* --- End Overall Status specific styles --- */
+
+
+/* Ensure canvas elements are responsive */
+canvas {
+    max-width: 100%;
+    height: auto !important;
+}
+
+/* Adjust chart heights as needed */
+#budgetChart { height: 180px !important; } /* Slightly reduced height for overall status space */
+#projectsTasksChart { height: 200px !important; }
+#risksChart, #issuesChart { height: 130px !important; }
+#monthlyRevenueChart { height: 230px !important; }
+#quarterlyRevenueChart { height: 230px !important; }
