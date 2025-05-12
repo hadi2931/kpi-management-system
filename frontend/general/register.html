@@ -3,114 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register New Account - KPI System</title>
+    <title>Register - KPI Management System</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style_register.css">
-    <!-- Or link to your main style.css if you add register-specific styles there -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="register_style.css"> 
+    <style>
+        /* Adding some basic dark theme styles if not fully covered by register_style.css */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #36393f; /* Dark background */
+            color: #dcddde; /* Light text */
+        }
+        .register-card {
+            width: 100%;
+            max-width: 450px; /* Slightly wider for more fields */
+            background-color: #2f3136; /* Slightly lighter dark card */
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .register-card .card-header {
+            background-color: #202225; /* Even darker header */
+            color: #ffffff;
+            font-size: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid #2f3136;
+            padding: 1.25rem;
+        }
+        .register-card .card-body {
+            padding: 2rem;
+        }
+        .register-card .form-control {
+            background-color: #40444b;
+            border: 1px solid #202225;
+            color: #dcddde;
+        }
+        .register-card .form-control:focus {
+            background-color: #40444b;
+            border-color: #7289da; /* Accent color */
+            box-shadow: 0 0 0 0.2rem rgba(114, 137, 218, 0.25);
+            color: #dcddde;
+        }
+        .register-card .btn-primary {
+            background-color: #7289da;
+            border-color: #7289da;
+            font-weight: 500;
+        }
+        .register-card .btn-primary:hover {
+            background-color: #677bc4;
+            border-color: #677bc4;
+        }
+        .register-card a {
+            color: #7289da;
+        }
+        .register-card a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        .alert-danger, .alert-success {
+            color: #ffffff;
+            border-width: 0;
+        }
+        .alert-danger { background-color: #f04747; }
+        .alert-success { background-color: #43b581; }
+    </style>
 </head>
 <body>
-    <div class="container register-container">
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-                <div id="registrationModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="registrationModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="registrationModalLabel">Registration Successful!</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body text-center">
-                                <p>Your account has been created successfully.</p>
-                                <button id="goToLoginBtn" class="btn btn-primary">Log in to start</button>
-                            </div>
-                        </div>
-                    </div>
+    <div class="card register-card">
+        <div class="card-header">
+            Create Account
+        </div>
+        <div class="card-body">
+            <form id="registerForm">
+                <div id="messageArea" class="alert" style="display: none;" role="alert">
+                    <!-- Error or success messages appear here -->
                 </div>
-                <div class="card register-card shadow-sm">
-                    <div class="card-header text-center">
-                        <h3>Create New Account</h3>
-                        <p class="text-muted">Join our KPI Management System</p>
-                    </div>
-                    <div class="card-body">
-                        <form id="registerForm">
-                            <div class="form-group">
-                                <label for="fullName">Full Name</label>
-                                <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email address</label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-                            </div>
-                             <div class="form-group">
-                                <label for="staffId">Staff ID</label>
-                                <input type="text" class="form-control" id="staffId" placeholder="Enter your staff ID" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="role">Choose Your Role</label>
-                                <select class="form-control" id="role" required>
-                                    <option value="" disabled selected>Select role</option>
-                                    <option value="manager">Manager</option>
-                                    <option value="staff">Staff</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="Choose a strong password" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="confirmPassword">Confirm Password</label>
-                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
-                            </div>
-                            <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="termsCheck" required>
-                                <label class="form-check-label" for="termsCheck">I agree to the <a href="#" data-toggle="modal" data-target="#termsModal">Terms and Conditions</a></label>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block">Register Account</button>
-                        </form>
-                        <hr>
-                        <div class="text-center">
-                            <p class="mb-0">Already have an account? <a href="login.html">Login here</a></p>
-                            <!-- Assuming you'll have a login.html page -->
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="username"><i class="fas fa-user mr-2"></i>Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Choose a username" required>
                 </div>
-                <p class="text-center text-muted mt-3">© 2024 KPI Management System</p>
-            </div>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope mr-2"></i>Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-lock mr-2"></i>Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Create a password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword"><i class="fas fa-redo-alt mr-2"></i>Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-4">Register</button>
+                <hr style="background-color: #40444b;">
+                <div class="text-center">
+                    <p class="mb-0">Already have an account? <a href="login.html">Log in</a></p>
+                </div>
+            </form>
         </div>
     </div>
 
-    <!-- Terms Modal -->
-    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p><strong>1. Acceptance of Terms</strong></p>
-                    <p>By registering for and/or using the KPI Management System ("Service") in any manner, you agree to these Terms and Conditions...</p>
-                    <p><strong>2. Registration</strong></p>
-                    <p>You must provide accurate, current, and complete information during the registration process...</p>
-                    <p><strong>3. User Conduct</strong></p>
-                    <p>You are responsible for all your activity in connection with the Service...</p>
-                    <p><em>(Add more comprehensive terms here)</em></p>
-                    <p>Last updated: [Current Date]</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="script_register.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const messageArea = document.getElementById('messageArea');
+
+            messageArea.style.display = 'none'; // Hide previous messages
+            messageArea.classList.remove('alert-danger', 'alert-success');
+
+            // Basic Client-Side Validation
+            if (!username || !email || !password || !confirmPassword) {
+                messageArea.textContent = 'All fields are required.';
+                messageArea.classList.add('alert-danger');
+                messageArea.style.display = 'block';
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                messageArea.textContent = 'Passwords do not match.';
+                messageArea.classList.add('alert-danger');
+                messageArea.style.display = 'block';
+                return;
+            }
+
+            // --- MOCK REGISTRATION ---
+            // In a real application, you would send this data to your backend server here.
+            // For example, using fetch():
+            // fetch('/api/register', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ username, email, password })
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            //     if (data.success) {
+            //         // ... success logic ...
+            //     } else {
+            //         // ... error logic ...
+            //     }
+            // })
+            // .catch(error => console.error('Error:', error));
+
+            console.log('Mock registration successful for:', { username, email });
+            messageArea.textContent = 'Registration successful! Redirecting to login...';
+            messageArea.classList.add('alert-success');
+            messageArea.style.display = 'block';
+
+            // Redirect to login page after a short delay
+            setTimeout(function() {
+                // Since register.html is in /frontend/general/, login.html is in the same directory
+                window.location.href = 'login.html'; 
+            }, 2000); // 2-second delay
+        });
+    </script>
 </body>
 </html>

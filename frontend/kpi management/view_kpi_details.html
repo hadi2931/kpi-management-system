@@ -41,18 +41,25 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4 shadow-sm">
-        <!-- ... (same navbar structure as add_kpi.html) ... -->
          <div class="container-fluid">
-            <a class="navbar-brand font-weight-bold" href="#">KPI Management System</a>
+            <a class="navbar-brand font-weight-bold" href="../dashboard summary/dashboard_summary.html">KPI Management System</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="dashboard.html"><i class="fas fa-tachometer-alt mr-1"></i>Dashboard</a></li>
-                    <li class="nav-item active"><a class="nav-link" href="kpi_manager_view.html"><i class="fas fa-list-alt mr-1"></i>Manage KPIs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user-circle mr-1"></i>Profile</a></li>
-                    <li class="nav-item"><a class="nav-link" href="logout.html"><i class="fas fa-sign-out-alt mr-1"></i>Logout</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../dashboard summary/dashboard_summary.html"><i class="fas fa-tachometer-alt mr-1"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="kpi_manager_view.html"><i class="fas fa-list-alt mr-1"></i>Manage KPIs <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../profile/profile.html"><i class="fas fa-user-circle mr-1"></i>Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../general/logout.html"><i class="fas fa-sign-out-alt mr-1"></i>Logout</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -66,7 +73,7 @@
                 <p class="text-muted page-subtitle">Detailed view of a specific Key Performance Indicator.</p>
             </div>
              <div>
-                <a href="#" id="editKpiLink" class="btn btn-secondary shadow-sm mr-2" style="display: none;">
+                <a href="#" id="editKpiLink" class="btn btn-secondary shadow-sm mr-2" style="display: none;"> <!-- JS will set href to kpi_manager_edit.html?id=... -->
                     <i class="fas fa-edit mr-2"></i>Edit this KPI
                 </a>
                  <a href="kpi_manager_view.html" class="btn btn-outline-secondary shadow-sm">

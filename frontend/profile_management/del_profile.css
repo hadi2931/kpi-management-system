@@ -60,7 +60,13 @@ body {
     color: #dc3545 !important;
 }
 
-
+.form-check-input {
+    filter: invert(1) hue-rotate(180deg);
+}
+.form-check-input:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
 /* Modal Headers for emphasis */
 .modal-header-warning {
     background-color: #ffc107; /* Bootstrap warning yellow */

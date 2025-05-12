@@ -1,110 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login - Concord Travels</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #e6f2ff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-image: url('blue_bg.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-attachment: fixed;
-    }
-    .form-container {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      width: 320px;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #0066cc;
-    }
-    label {
-      display: block;
-      margin-bottom: 12px; 
-      font-weight: bold;
-      color: #333;
-    }
-    input[type="email"],
-    input[type="password"],
-    select {
-      width: 100%;
-      padding: 10px 12px;
-      margin-bottom: 16px; 
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      box-sizing: border-box;
-    }
-    button {
-      width: 100%;
-      padding: 10px;
-      background-color: #0066cc;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #004a99;
-    }
-    
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - KPI Management System</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Assuming a general style or a login-specific style -->
+    <link rel="stylesheet" href="register_style.css"> 
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #36393f; /* Dark background */
+            color: #dcddde; /* Light text */
+        }
+        .login-card {
+            width: 100%;
+            max-width: 400px;
+            background-color: #2f3136; /* Slightly lighter dark card */
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .login-card .card-header {
+            background-color: #202225; /* Even darker header */
+            color: #ffffff;
+            font-size: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid #2f3136;
+            padding: 1.25rem;
+        }
+        .login-card .card-body {
+            padding: 2rem;
+        }
+        .login-card .form-control {
+            background-color: #40444b;
+            border: 1px solid #202225;
+            color: #dcddde;
+        }
+        .login-card .form-control:focus {
+            background-color: #40444b;
+            border-color: #7289da; /* Accent color */
+            box-shadow: 0 0 0 0.2rem rgba(114, 137, 218, 0.25);
+            color: #dcddde;
+        }
+        .login-card .btn-primary {
+            background-color: #7289da;
+            border-color: #7289da;
+            font-weight: 500;
+        }
+        .login-card .btn-primary:hover {
+            background-color: #677bc4;
+            border-color: #677bc4;
+        }
+        .login-card .form-check-label {
+            color: #b9bbbe;
+        }
+        .login-card a {
+            color: #7289da;
+        }
+        .login-card a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        .alert-danger {
+            background-color: #f04747;
+            color: #ffffff;
+            border-color: #f04747;
+        }
+    </style>
 </head>
 <body>
-  <div class="form-container">
-    <h2>Login</h2>
-    <form id="loginForm">
-      <label for="email">Email Address:</label>
-      <input type="email" id="email" name="email" placeholder="Your Email" required>
+    <div class="card login-card">
+        <div class="card-header">
+            KPI System Login
+        </div>
+        <div class="card-body">
+            <form id="loginForm">
+                <div id="errorMessage" class="alert alert-danger" style="display: none;" role="alert">
+                    <!-- Error messages appear here -->
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope mr-2"></i>Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-lock mr-2"></i>Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password" required>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-4">Login</button>
+                <div class="text-center mt-3">
+                    <a href="#">Forgot password?</a>
+                </div>
+                <hr style="background-color: #40444b;">
+                <div class="text-center">
+                    <p class="mb-0">Don't have an account? <a href="register.html">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
 
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" placeholder="Your Password" required>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
 
-      <label for="loginRole">Login As:</label>
-      <select id="loginRole" name="loginRole" required>
-        <option value="" disabled selected>Select role</option>
-        <option value="manager">Manager</option>
-        <option value="staff">Staff</option>
-      </select>
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorMessageDiv = document.getElementById('errorMessage');
 
-      <button type="submit" id="loginBtn">Login</button>
-    </form>
-    <p style="text-align: center; margin-top: 10px;">
-      Don't have an account? <a href="register.html">Register</a>
-    </p>
-  </div>
+            // Basic validation (you would have more robust validation)
+            if (!email || !password) {
+                errorMessageDiv.textContent = 'Please enter both email and password.';
+                errorMessageDiv.style.display = 'block';
+                return;
+            }
 
-  <script>
-    const loginForm = document.getElementById('loginForm');
-    const loginBtn = document.getElementById('loginBtn');
-    const roleSelect = document.getElementById('loginRole');
-
-    loginBtn.addEventListener('click', function(event) {
-      event.preventDefault(); // Prevent default form submission
-
-      const selectedRole = roleSelect.value;
-
-      if (selectedRole === 'manager') {
-        window.location.href = "../dashboard summary/main dashboard.html"; //change the redicrect accordingly
-      } else if (selectedRole === 'staff') {
-        window.location.href = "../dashboard summary/main dashboard.html"; //change the redicrect accordingly
-      } else {
-        alert("Please select a role to login."); 
-      }
-    });
-  </script>
+            // Simulate a login check (in a real app, this would be an API call)
+            // For this example, any non-empty email and password will "log in"
+            if (email && password) {
+                errorMessageDiv.style.display = 'none';
+                console.log('Login successful (mock), redirecting...');
+                
+                // **THIS IS THE CORRECTED REDIRECTION LINE:**
+                // It navigates from /frontend/general/login.html
+                // to /frontend/dashboard_summary/dashboard.html
+                window.location.href = '../dashboard summary/main_dashboard.html';
+            } else {
+                // This case is covered by above validation, but as an example
+                errorMessageDiv.textContent = 'Invalid credentials (mock).';
+                errorMessageDiv.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>

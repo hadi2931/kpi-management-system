@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit KPI - KPI System</title>
+    <title>Edit KPI - KPI System</title> <!-- Changed title slightly -->
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Custom CSS (Dark Theme) -->
-    <link rel="stylesheet" href="style_kpi_manager_view.css">
+    <link rel="stylesheet" href="style_kpi_manager.css">
     <style>
         /* Minor page-specific adjustments if needed */
         .form-section-divider {
@@ -26,18 +26,25 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4 shadow-sm">
-        <!-- ... (same navbar structure as previous pages) ... -->
-         <div class="container-fluid">
-            <a class="navbar-brand font-weight-bold" href="#">KPI Management System</a>
-             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="container-fluid">
+            <a class="navbar-brand font-weight-bold" href="../dashboard_summary/dashboard_summary.html">KPI Management System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="dashboard.html"><i class="fas fa-tachometer-alt mr-1"></i>Dashboard</a></li>
-                    <li class="nav-item active"><a class="nav-link" href="kpi_manager_view.html"><i class="fas fa-list-alt mr-1"></i>Manage KPIs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user-circle mr-1"></i>Profile</a></li>
-                    <li class="nav-item"><a class="nav-link" href="logout.html"><i class="fas fa-sign-out-alt mr-1"></i>Logout</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../dashboard summary/dashboard_summary.html"><i class="fas fa-tachometer-alt mr-1"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="kpi_manager_view.html"><i class="fas fa-list-alt mr-1"></i>Manage KPIs <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../profile/profile.html"><i class="fas fa-user-circle mr-1"></i>Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../general/logout.html"><i class="fas fa-sign-out-alt mr-1"></i>Logout</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -46,25 +53,13 @@
     <!-- Main Content -->
     <div class="container mt-4 mb-5">
         <header class="mb-4">
-            <h1 class="page-title h2">Edit Key Performance Indicator</h1>
-            <p class="text-muted page-subtitle">Modify the details for an existing KPI.</p>
+            <h1 class="page-title h2">Edit Key Performance Indicator</h1> <!-- Changed title slightly -->
+            <p class="text-muted page-subtitle">Update the details for the existing KPI.</p> <!-- Changed subtitle slightly -->
         </header>
 
         <div class="card kpi-list-card shadow-sm">
             <div class="card-body p-4">
-
-                <!-- Loading/Error Messages -->
-                <div id="loadingMessageEdit" class="text-center py-5">
-                    <div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span></div>
-                    <p class="mt-3 text-muted">Loading KPI data...</p>
-                </div>
-                <div id="errorMessageEdit" class="alert alert-danger" style="display: none;"></div>
-
-                <!-- Edit Form (Hidden until data loaded) -->
-                <form id="editKpiForm" novalidate style="display: none;">
-                    <input type="hidden" id="kpiIdEdit" name="kpiId"> {/* To store the ID being edited */}
-
-                    {/* ----- Form fields identical to add_kpi.html ----- */}
+                <form id="editKpiForm" novalidate> <!-- Changed form ID -->
 
                     <!-- Basic Information -->
                     <h5>Basic Information</h5>
@@ -103,7 +98,7 @@
                          <div class="form-group col-md-4">
                             <label for="kpiTargetType">Target Type</label>
                             <select id="kpiTargetType" class="form-control custom-select">
-                                <option value="Percentage">Percentage (%)</option>
+                                <option selected value="Percentage">Percentage (%)</option>
                                 <option value="Number">Number</option>
                                 <option value="Currency">Currency ($)</option>
                                 <option value="Ratio">Ratio</option>
@@ -113,7 +108,7 @@
                         <div class="form-group col-md-4">
                             <label for="kpiFrequency">Update Frequency</label>
                              <select id="kpiFrequency" class="form-control custom-select">
-                                <option value="Monthly">Monthly</option>
+                                <option selected value="Monthly">Monthly</option>
                                 <option value="Weekly">Weekly</option>
                                 <option value="Quarterly">Quarterly</option>
                                 <option value="Annually">Annually</option>
@@ -148,14 +143,13 @@
                         </div>
                     </div>
 
-                     {/* <!-- Optional: Add fields for Current Value / Status if editing them here too --> */}
-
                     <!-- Action Buttons -->
                     <hr class="mt-4">
                     <div class="text-right">
                         <a href="kpi_manager_view.html" class="btn btn-outline-secondary mr-2">Cancel</a>
-                        <button type="submit" class="btn btn-success"><i class="fas fa-save mr-2"></i>Save Changes</button>
+                        <button type="submit" class="btn btn-success"><i class="fas fa-save mr-2"></i>Save Changes</button> <!-- Changed button text -->
                     </div>
+
                 </form>
             </div>
         </div>
@@ -170,7 +164,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="script_edit_kpi.js"></script> 
+    <script src="script_edit_kpi.js"></script> <!-- Assuming script_edit_kpi.js for this form -->
     <script> document.getElementById('currentYear').textContent = new Date().getFullYear(); </script>
 </body>
 </html>

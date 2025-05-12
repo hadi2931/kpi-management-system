@@ -1,55 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Concord Travels - Welcome</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f8ff;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .container {
-      text-align: center;
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    h1 {
-      margin-bottom: 30px;
-      color: #0066cc;
-    }
-    .button {
-      display: inline-block;
-      padding: 12px 25px;
-      margin: 10px;
-      font-size: 16px;
-      color: white;
-      background-color: #0066cc;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .button:hover {
-      background-color: #004a99;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - KPI Management System</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="kpi%20management/style_kpi_manager.css"> 
+    <style>
+        /* index.html specific professional styles from previous example */
+        body { color: #e0e0e0; overflow-x: hidden; padding-top: 70px; /* For fixed-top navbar */ }
+        .navbar.welcome-navbar { background-color: #004a99 !important; padding-top: 1rem; padding-bottom: 1rem; }
+        .navbar.welcome-navbar .navbar-brand { color: #ffccff !important; font-size: 1.5rem; font-weight: 700; }
+        .navbar.welcome-navbar .nav-link { color: rgba(255, 255, 255, 0.75) !important; font-weight: 500; }
+        .navbar.welcome-navbar .nav-link:hover, .navbar.welcome-navbar .nav-item.active .nav-link { color: #ffffff !important; }
+        .hero-section { background-color: #23272A; padding: 6rem 1rem; min-height: calc(80vh - 70px); display: flex; align-items: center; text-align: center; }
+        .hero-section h1 { font-size: 3.5rem; font-weight: 700; color: #ffffff; margin-bottom: 1.5rem; }
+        .hero-section .lead { font-size: 1.35rem; color: #adb5bd; margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .hero-section .btn { font-size: 1.15rem; padding: 0.85rem 2.25rem; margin: 0.5rem; border-radius: 50px; font-weight: 600; text-transform: uppercase; }
+        .hero-section .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+        .hero-section .btn-primary { background-color: #0069d9 !important; border-color: #0069d9 !important; color: white !important; }
+        .hero-section .btn-outline-light { border-width: 2px; }
+        .features-section { padding: 5rem 1rem; background-color: #2c2f33; }
+        .features-section .section-title { text-align: center; margin-bottom: 4rem; color: #ffffff; font-weight: 600; }
+        .feature-card { background-color: #36393f; border: 1px solid #222427; border-radius: 0.5rem; padding: 2rem; text-align: center; height: 100%; }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); }
+        .feature-card .feature-icon { font-size: 3.5rem; color: #0069d9; margin-bottom: 1.5rem; display: inline-block; background-color: rgba(0, 105, 217, 0.1); width: 80px; height: 80px; line-height: 80px; border-radius: 50%; }
+        .feature-card h5 { color: #ffffff; margin-bottom: 0.75rem; font-weight: 600; }
+        .feature-card p { color: #adb5bd; font-size: 0.95rem; line-height: 1.6; }
+        .index-footer { background-color: #23272A; color: #72767d; padding: 2rem 1rem; font-size: 0.9rem; }
+        .index-footer a { color: #adb5bd; text-decoration: none; }
+        .index-footer a:hover { color: #ffffff; text-decoration: underline; }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Welcome to Concord Travels</h1>
-    <a href="general/register.html" class="button">Register New Account</a>
-    <a href="general/login.html" class="button">Login</a>
-  </div>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top welcome-navbar" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">KPI Management System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#indexNav" aria-controls="indexNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="indexNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="general/login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-outline-light btn-sm ml-lg-2" href="general/register.html" style="padding: 0.4rem 1rem;">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1>Empower Your Decisions with Data</h1>
+            <p class="lead">
+                Streamline your Key Performance Indicator tracking. Gain insights, monitor progress, and drive your business towards success with our intuitive platform.
+            </p>
+            <div>
+                <a href="general/login.html" class="btn btn-primary shadow-lg">Get Started <i class="fas fa-arrow-right ml-2"></i></a>
+                <a href="general/register.html" class="btn btn-outline-light shadow-lg">Create an Account</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Our KPI System?</h2>
+            <div class="row">
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
+                        <h5>Centralized KPI Hub</h5><p>Define, track, and manage all your key metrics in one accessible platform.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
+                        <h5>Goal-Oriented Tracking</h5><p>Set targets, monitor progress, and identify areas needing attention.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-users"></i></div>
+                        <h5>Collaborative Environment</h5><p>Foster teamwork with clear visibility into performance (future feature).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center index-footer">
+        <div class="container">
+            <p class="mb-1"><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            <p class="mb-0">© <span id="currentYear"></span> KPI Management System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        $(document).on('click', 'a.nav-link[href^="#"]', function (event) {
+            event.preventDefault();
+            var targetOffset = $($.attr(this, 'href')).offset().top;
+            var navbarHeight = $('#mainNav').outerHeight() || 0;
+            $('html, body').animate({ scrollTop: targetOffset - navbarHeight }, 500);
+        });
+    </script>
 </body>
-<link rel="stylesheet" href="general/style.css" />
 </html>

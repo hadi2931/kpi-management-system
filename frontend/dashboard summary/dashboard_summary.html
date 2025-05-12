@@ -3,94 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KPI Performance Dashboard</title>
+    <title>Dashboard - KPI Summary - KPI System</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../kpi%20management/style_kpi_manager.css">
     <link rel="stylesheet" href="style_dashboard_summary.css">
 </head>
 <body>
-    
-    <div class="container-fluid mt-4">
-        <h1 class="dashboard-main-title text-center mb-1">KPI Performance Dashboard </h1>
-        <h5 class="dashboard-subtitle text-center mb-4">KPI PERFORMANCE DASHBOARD FOR KEY KPIs</h5>
-
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4 shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand font-weight-bold" href="../index.html">KPI Management System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="dashboard_summary.html"><i class="fas fa-tachometer-alt mr-1"></i>Dashboard <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../kpi%20management/kpi_manager_view.html"><i class="fas fa-list-alt mr-1"></i>Manage KPIs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../profile/profile.html"><i class="fas fa-user-circle mr-1"></i>Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../general/logout.html"><i class="fas fa-sign-out-alt mr-1"></i>Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid dashboard-container mt-4 mb-5">
+        <header class="text-center mb-5">
+            <h1 class="dashboard-main-title">KPI Performance Dashboard</h1>
+            <p class="dashboard-subtitle lead">Summary of Key Performance Indicators</p>
+        </header>
         <div class="row">
-            <!-- Left Column -->
-            <div class="col-lg-3">
-                <div class="card overall-status-card mb-4"> 
-                    <div class="card-header">OVERALL STATUS</div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card summary-kpi-card overall-status-card h-100">
+                    <div class="card-header">Overall Project Status</div>
                     <div class="card-body">
                         <div class="status-item">
-                            <span class="status-label">SCHEDULE</span>
+                            <span class="status-icon"><i class="fas fa-calendar-alt"></i></span>
+                            <span class="status-label">Schedule</span>
                             <span class="status-value">45%</span>
-                            <span class="status-text">ahead</span>
+                            <span class="status-text text-success">ahead</span>
                         </div>
                         <hr class="status-hr">
                         <div class="status-item">
-                            <span class="status-label">PROGRESS</span>
+                             <span class="status-icon"><i class="fas fa-tasks"></i></span>
+                            <span class="status-label">Progress</span>
                             <span class="status-value">30%</span>
                             <span class="status-text">complete</span>
                         </div>
                         <hr class="status-hr">
                         <div class="status-item">
-                            <span class="status-label">BUDGET</span>
+                            <span class="status-icon"><i class="fas fa-wallet"></i></span>
+                            <span class="status-label">Budget</span>
                             <span class="status-value">26%</span>
-                            <span class="status-text">remaining</span>
+                            <span class="status-text text-warning">remaining</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="card mb-4">
-                    <div class="card-header">BUDGET</div>
-                    <div class="card-body">
-                        <canvas id="budgetChart"></canvas>
-                    </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card summary-kpi-card h-100">
+                    <div class="card-header">Budget Overview</div>
+                    <div class="card-body chart-wrapper"><canvas id="budgetChart"></canvas></div>
                 </div>
             </div>
-
-            <!-- Middle Column -->
-            <div class="col-lg-3">
-                <div class="card mb-4">
-                    <div class="card-header">PROJECTS / TASKS</div>
-                    <div class="card-body">
-                        <canvas id="projectsTasksChart"></canvas>
-                    </div>
-                </div>
-
-                <div class="card mb-4">
-                    <div class="card-header">RISKS</div>
-                    <div class="card-body">
-                        <canvas id="risksChart"></canvas>
-                    </div>
-                </div>
-
-                <div class="card mb-4">
-                    <div class="card-header">ISSUES</div>
-                    <div class="card-body">
-                        <canvas id="issuesChart"></canvas>
-                    </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card summary-kpi-card h-100">
+                    <div class="card-header">Projects / Tasks Status</div>
+                    <div class="card-body chart-wrapper"><canvas id="projectsTasksChart"></canvas></div>
                 </div>
             </div>
-
-            <!-- Right Column -->
-            <div class="col-lg-6">
-                <div class="card mb-4">
-                    <div class="card-header">MONTHLY REVENUE</div>
-                    <div class="card-body">
-                        <canvas id="monthlyRevenueChart"></canvas>
-                    </div>
-                </div>
-
-                <div class="card mb-4">
-                    <div class="card-header">QUARTERLY REVENUE</div>
-                    <div class="card-body">
-                        <canvas id="quarterlyRevenueChart"></canvas>
+            <div class="col-lg-3 col-md-6 mb-4">
+                 <div class="card summary-kpi-card h-100">
+                    <div class="card-header">Risks & Issues</div>
+                    <div class="card-body d-flex flex-column justify-content-around">
+                        <div class="chart-wrapper-small"><h6 class="small-card-title text-center">Risks</h6><canvas id="risksChart"></canvas></div>
+                        <hr class="status-hr w-100 my-2">
+                        <div class="chart-wrapper-small"><h6 class="small-card-title text-center">Issues</h6><canvas id="issuesChart"></canvas></div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="card summary-kpi-card h-100">
+                    <div class="card-header">Monthly Revenue Trend</div>
+                    <div class="card-body chart-wrapper chart-wrapper-large"><canvas id="monthlyRevenueChart"></canvas></div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="card summary-kpi-card h-100">
+                    <div class="card-header">Quarterly Revenue Performance</div>
+                    <div class="card-body chart-wrapper chart-wrapper-large"><canvas id="quarterlyRevenueChart"></canvas></div>
+                </div>
+            </div>
+        </div>
+        <footer class="text-center text-muted mt-5 py-3">
+            <p class="mb-0">© <span id="currentYear"></span> KPI Management System</p>
+        </footer>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
     <script src="script_dashboard_summary.js"></script>
+    <script> document.getElementById('currentYear').textContent = new Date().getFullYear(); </script>
 </body>
 </html>
