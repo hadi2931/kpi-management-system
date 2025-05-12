@@ -1,7 +1,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     /* Background Image - Replace URL with your desired image */
-    background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGF0YSUyMGFuYWx5c2lzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60'); /* Example data analysis background */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
