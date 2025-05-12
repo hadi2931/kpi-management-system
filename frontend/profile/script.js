@@ -2,7 +2,7 @@
 let user = {
     name: "Test",
     email: "test@google.com",
-    role: "user",
+    role: "staff",
     password: "test123"
   };
   
