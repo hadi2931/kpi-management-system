@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Concord Travels</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e6f2ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 320px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0066cc;
+    }
+    label {
+      display: block;
+      margin-bottom: 12px; 
+      font-weight: bold;
+      color: #333;
+    }
+    input[type="email"],
+    input[type="password"],
+    select {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 16px; 
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #004a99;
+    }
+    .role-select {
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Your Password" required>
+
+      <label for="loginRole">Login As:</label>
+      <select id="loginRole" name="loginRole" required>
+        <option value="" disabled selected>Select role</option>
+        <option value="manager">Manager</option>
+        <option value="staff">Staff</option>
+      </select>
+
+      <button type="submit" id="loginBtn">Login</button>
+    </form>
+    <p style="text-align: center; margin-top: 10px;">
+      Don't have an account? <a href="register.html">Register</a>
+    </p>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const loginBtn = document.getElementById('loginBtn');
+    const roleSelect = document.getElementById('loginRole');
+
+    loginBtn.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      const selectedRole = roleSelect.value;
+
+      if (selectedRole === 'manager') {
+        window.location.href = "../dashboard/dashboard.html"; //change the redicrect accordingly
+      } else if (selectedRole === 'staff') {
+        window.location.href = "../dashboard/dashboard.html"; //change the redicrect accordingly
+      } else {
+        alert("Please select a role to login."); 
+      }
+    });
+  </script>
+</body>
+</html>
