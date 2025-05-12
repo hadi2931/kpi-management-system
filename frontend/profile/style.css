@@ -1,0 +1,98 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 40px;
+  background: linear-gradient(135deg, #e9f0f7, #d3e0ea);
+}
+
+nav {
+    margin-bottom: 20px;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  max-width: 500px;
+  margin: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 3px solid #007bff;
+  object-fit: cover;
+}
+
+.info {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.info p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.btn-group {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.update-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.update-btn:hover {
+  background-color: #0056b3;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #a71d2a;
+}
+
+.form-group {
+  display: none;
+  margin-top: 20px;
+  text-align: left;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.message {
+  margin-top: 20px;
+  padding: 12px;
+  display: none;
+  border-radius: 6px;
+  font-weight: bold;
+}

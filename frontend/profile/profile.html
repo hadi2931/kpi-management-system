@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<!-- information that describes the web page -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>KPI - Profile Page</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body data-user-id="123"> <!-- placeholder for id user-->
+
+<header>
+    <h1>KPI Management</h1>
+</header>
+
+<!-- main navigation -->
+<nav>
+    <b>
+        <a href="index.html">Home</a> &nbsp; <br>
+    </b>
+</nav>
+
+<!-- main content -->
+<main>
+    <div class="container">
+        <h2>User Profile</h2>
+        <img src="profilepic.png" alt="User Image" class="profile-img" />
+        
+        <div class="info" id="profileInfo">
+            <p><strong>Name:</strong> <span id="displayName"></span></p>
+            <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+            <p><strong>Role:</strong> <span id="displayRole"></span></p>
+          </div>
+      
+          <div class="btn-group">
+            <button class="update-btn" onclick="showUpdateForm()">Update Details</button>
+            <button class="update-btn" onclick="showPasswordForm()">Update Password</button>
+            <button class="delete-btn" onclick="deleteAccount()">Delete Account</button>
+          </div>
+
+          <!-- Update Form -->
+        <div class="form-group" id="updateForm">
+            <h3>Update Details</h3>
+            <input type="text" id="newName" placeholder="New name" />
+            <input type="email" id="newEmail" placeholder="New email" />
+            <button class="update-btn" onclick="updateDetails()">Save Changes</button>
+        </div>
+
+        <!-- Password Form -->
+        <div class="form-group" id="passwordForm">
+            <h3>Update Password</h3>
+            <input type="password" id="newPassword" placeholder="New password" />
+            <button class="update-btn" onclick="updatePassword()">Save Password</button>
+        </div>
+
+        <div class="message" id="messageBox"></div>
+
+    </div>
+</main>
+    
+<script src="script.js"></script>
+</body>
+</html>
