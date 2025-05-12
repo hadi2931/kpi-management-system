@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register New Account - KPI System</title>
@@ -13,6 +12,22 @@
     <div class="container register-container">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
+                <div id="registrationModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="registrationModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="registrationModalLabel">Registration Successful!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <p>Your account has been created successfully.</p>
+                                <button id="goToLoginBtn" class="btn btn-primary">Log in to start</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card register-card shadow-sm">
                     <div class="card-header text-center">
                         <h3>Create New Account</h3>
@@ -27,7 +42,18 @@
                             <div class="form-group">
                                 <label for="email">Email address</label>
                                 <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                             <div class="form-group">
+                                <label for="staffId">Staff ID</label>
+                                <input type="text" class="form-control" id="staffId" placeholder="Enter your staff ID" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="role">Choose Your Role</label>
+                                <select class="form-control" id="role" required>
+                                    <option value="" disabled selected>Select role</option>
+                                    <option value="manager">Manager</option>
+                                    <option value="staff">Staff</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
@@ -88,171 +114,3 @@
     <script src="script_register.js"></script>
 </body>
 </html>
-=======
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register - Concord Travels</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #e6f2ff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-image: url('blue_bg.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-attachment: fixed;
-    }
-
-    .form-container {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      width: 320px;
-      position: relative; 
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #0066cc;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: bold;
-      color: #333;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    select {
-      width: 100%;
-      padding: 10px 12px;
-      margin-bottom: 16px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      box-sizing: border-box;
-    }
-
-    button[type="submit"] {
-      width: 100%;
-      padding: 10px;
-      background-color: #0066cc;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    button[type="submit"]:hover {
-      background-color: #004a99;
-    }
-    .modal {
-      display: none; 
-      position: fixed; 
-      z-index: 1; 
-      left: 0;
-      top: 0;
-      width: 100%; 
-      height: 100%; 
-      overflow: auto; 
-      background-color: rgba(0,0,0,0.4); 
-    }
-    .modal-content {
-      background-color: #fefefe;
-      margin: 15% auto; 
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%; 
-      border-radius: 8px;
-      text-align: center;
-      position: relative;
-    }
-    .modal-content h3 {
-      color: #28a745; 
-      margin-bottom: 15px;
-    }
-
-    .modal-content button {
-      background-color: #007bff; 
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      margin-top: 10px;
-    }
-
-    .modal-content button:hover {
-      background-color: #0056b3;
-    }
-  </style>
-</head>
-<body>
-  <div class="form-container">
-    <h2>Create Account</h2>
-    <form id="registrationForm">
-      <label for="fullname">Full Name:</label>
-      <input type="text" id="fullname" name="fullname" required>
-
-      <label for="staffid">Staff ID:</label>
-      <input type="text" id="staffid" name="staffid" required>
-
-      <label for="email">Work Email:</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required>
-
-      <label for="role">Choose Your Role:</label>
-      <select id="role" name="role" required>
-        <option value="" disabled selected>Select role</option>
-        <option value="manager">Manager</option>
-        <option value="staff">Staff</option>
-      </select>
-
-      <button type="submit" id="registerBtn">Register</button>
-    </form>
-
-    <div id="registrationModal" class="modal">
-      <div class="modal-content">
-        <h3>Registration Successful!</h3>
-        <button id="goToLoginBtn">Log in to start</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const registrationForm = document.getElementById('registrationForm');
-    const registerBtn = document.getElementById('registerBtn');
-    const registrationModal = document.getElementById('registrationModal');
-    const goToLoginBtn = document.getElementById('goToLoginBtn');
-
-    registerBtn.addEventListener('click', function(event) {
-      event.preventDefault(); 
-      registrationModal.style.display = "block";
-    });
-
-    goToLoginBtn.addEventListener('click', function() {
-      window.location.href = "login.html"; // Redirect to the login page
-    });
-    window.addEventListener('click', function(event) {
-      if (event.target == registrationModal) {
-        registrationModal.style.display = "none";
-      }
-    });
-  </script>
-</body>
-</html>
-
->>>>>>> 5ab4540800bf725ba64323c60e2f2f3b1eed10cd
