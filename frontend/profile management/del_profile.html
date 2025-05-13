@@ -6,9 +6,8 @@
     <title>Confirm Account Deletion - KPI System</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="../kpi_management/style_kpi_manager.css">
-    <link rel="stylesheet" href="../css/style_kpi_manager.css"> 
-    <link rel="stylesheet" href="del_profile.css"> 
+    <link rel="stylesheet" href="../kpi management/style_kpi_manager_view.css">
+    <link rel="stylesheet" href="del_profile.css">
     <style>
         /* Basic dark theme adjustments if not fully covered by external CSS */
         .del-profile-card .card-header { background-color: #dc3545; color: white; }
@@ -60,7 +59,7 @@
                         
                         <form id="confirmDeleteForm" novalidate>
                             <div class="form-group mt-4">
-                                <label for="confirmEmailDelete">Your Email Address (<span id="userEmailForDeleteConfirmation" class="font-italic">your.email@example.com</span>):</label>
+                                <label for="confirmEmailDeleteInput">Your Email Address (<span id="userEmailForDeleteConfirmation" class="font-italic">your.email@example.com</span>):</label>
                                 <input type="email" class="form-control" id="confirmEmailDeleteInput" placeholder="Type your email to confirm" required>
                                 <div class="invalid-feedback">Please enter your email to confirm.</div>
                                 <div class="invalid-feedback text-danger" id="emailMismatchError" style="display:none;">The entered email does not match your account email.</div>
@@ -74,7 +73,7 @@
 
                             <hr class="mt-4">
                             <div class="d-flex justify-content-between align-items-center">
-                                <a href="../dashboard%20summary/dashboard_summary.html" class="btn btn-outline-secondary">
+                                <a href="../dashboard%20summary/main_dashboard.html" class="btn btn-outline-secondary">
                                     <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
                                 </a>
                                 <button type="submit" class="btn btn-danger" id="finalDeleteBtn">

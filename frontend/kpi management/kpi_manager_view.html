@@ -6,7 +6,7 @@
     <title>Manage KPIs - KPI System</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="style_kpi_manager.css">
+    <link rel="stylesheet" href="style_kpi_manager_view.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4 shadow-sm">
@@ -18,7 +18,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../dashboard summary/dashboard.html"><i class="fas fa-tachometer-alt mr-1"></i>Dashboard</a>
+                        <a class="nav-link" href="../dashboard summary/main_dashboard.html"><i class="fas fa-tachometer-alt mr-1"></i>Dashboard</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="kpi_manager_view.html"><i class="fas fa-list-alt mr-1"></i>Manage KPIs <span class="sr-only">(current)</span></a>
@@ -41,7 +41,7 @@
                 <p class="text-muted page-subtitle">View, manage, and analyze defined KPIs.</p>
             </div>
             <div>
-                <a href="kpi_manager_add.html" class="btn btn-primary btn-lg shadow-sm"> 
+                <a href="kpi_manager_add.html" class="btn btn-primary btn-lg shadow-sm">
                     <i class="fas fa-plus-circle mr-2"></i>Add New KPI
                 </a>
             </div>
@@ -50,7 +50,7 @@
             <div class="card-header bg-light d-flex justify-content-between align-items-center flex-wrap py-3">
                 <h5 class="mb-0 card-title-text">KPI List</h5>
                 <form class="form-inline ml-md-auto mt-2 mt-md-0" id="kpiFilterForm" role="search">
-                
+
                     <div class="input-group input-group-sm mr-sm-2 mb-2 mb-sm-0">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-search"></i></span></div>
                         <input type="search" class="form-control" id="kpiSearchInput" placeholder="Search KPIs..." aria-label="Search KPIs">
@@ -83,7 +83,7 @@
                     </table>
                 </div>
                 <div id="kpiTableMessageArea" class="p-4 text-center" style="display: none;">
-                    
+
                 </div>
             </div>
             <div class="card-footer bg-light" id="kpiPaginationContainer" style="display: none;">
@@ -95,7 +95,8 @@
             </div>
         </div>
         <footer class="text-center text-muted mt-5 py-3">
-             <p class="mb-0">© <span id="currentYear"></span> KPI Management System. All rights reserved.</p> 
+             <p class="mb-0">© <span id="currentYear"></span> KPI Management System. All rights reserved.</p>
+        </footer>
     </div>
 
 
