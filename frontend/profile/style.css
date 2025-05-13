@@ -1,7 +1,7 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 40px;
-  background: linear-gradient(135deg, #e9f0f7, #d3e0ea);
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #36393f; /* Dark background */
+    color: #dcddde; /* Light text */
 }
 
 nav {

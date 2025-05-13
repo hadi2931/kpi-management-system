@@ -8,20 +8,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>KPI - Profile Page</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../kpi management/style_kpi_manager_view.css">
+    <style>
+        body {
+            background-color: #36393f; /* Dark background */
+        }
+    </style>
 </head>
-
-<body data-user-id="123"> <!-- placeholder for id user-->
-
-<header>
-    <h1>KPI Management</h1>
-</header>
-
-<!-- main navigation -->
-<nav>
-    <b>
-        <a href="../dashboard%20summary/main_dashboard.html"><< Back</a> &nbsp; <br>
-    </b>
-</nav>
+<body>
+    <!-- NAVBAR - Paths relative to frontend/profile management/del_profile.html -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4 shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand font-weight-bold" href="../index.html">KPI Management System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../dashboard%20summary/dashboard_summary.html"><i class="fas fa-tachometer-alt mr-1"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../kpi%20management/kpi_manager_view.html"><i class="fas fa-list-alt mr-1"></i>Manage KPIs</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../profile/profile.html"><i class="fas fa-user-circle mr-1"></i>Profile <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../general/logout.html"><i class="fas fa-sign-out-alt mr-1"></i>Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
 <!-- main content -->
 <main>
@@ -60,7 +81,12 @@
 
     </div>
 </main>
-    
+
+<!-- Bootstrap JS dependencies (Required for navbar toggle) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 <script src="script.js"></script>
 </body>
 </html>
