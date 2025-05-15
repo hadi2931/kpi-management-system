@@ -18,8 +18,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="main_dashboard.html"><i class="fas fa-tachometer-alt mr-1"></i>Dashboard <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="main_dashboard.html"><i class="fas fa-tachometer-alt mr-1"></i>Dashboard</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="dashboard_summary.html"><i class="fas fa-chart-bar mr-1"></i>Report <span class="sr-only">(current)</span></a>
@@ -39,67 +39,35 @@
     </nav>
     <div class="container-fluid dashboard-container mt-4 mb-5">
         <div class="row">
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card summary-kpi-card overall-status-card h-100">
-                    <div class="card-header">Overall Project Status</div>
-                    <div class="card-body">
-                        <div class="status-item">
-                            <span class="status-icon"><i class="fas fa-calendar-alt"></i></span>
-                            <span class="status-label">Schedule</span>
-                            <span class="status-value">45%</span>
-                            <span class="status-text text-success">ahead</span>
-                        </div>
-                        <hr class="status-hr">
-                        <div class="status-item">
-                             <span class="status-icon"><i class="fas fa-tasks"></i></span>
-                            <span class="status-label">Progress</span>
-                            <span class="status-value">30%</span>
-                            <span class="status-text">complete</span>
-                        </div>
-                        <hr class="status-hr">
-                        <div class="status-item">
-                            <span class="status-icon"><i class="fas fa-wallet"></i></span>
-                            <span class="status-label">Budget</span>
-                            <span class="status-value">26%</span>
-                            <span class="status-text text-warning">remaining</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
+            <div class="col-lg-6 mb-4">
                 <div class="card summary-kpi-card h-100">
-                    <div class="card-header">Budget Overview</div>
-                    <div class="card-body chart-wrapper"><canvas id="budgetChart"></canvas></div>
+                    <div class="card-header">KPI Status Overview</div>
+                    <div class="card-body chart-wrapper"><canvas id="kpiStatusChart"></canvas></div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 mb-4">
+            <div class="col-lg-6 mb-4">
                 <div class="card summary-kpi-card h-100">
-                    <div class="card-header">Projects / Tasks Status</div>
-                    <div class="card-body chart-wrapper"><canvas id="projectsTasksChart"></canvas></div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                 <div class="card summary-kpi-card h-100">
-                    <div class="card-header">Risks & Issues</div>
-                    <div class="card-body d-flex flex-column justify-content-around">
-                        <div class="chart-wrapper-small"><h6 class="small-card-title text-center">Risks</h6><canvas id="risksChart"></canvas></div>
-                        <hr class="status-hr w-100 my-2">
-                        <div class="chart-wrapper-small"><h6 class="small-card-title text-center">Issues</h6><canvas id="issuesChart"></canvas></div>
-                    </div>
+                    <div class="card-header">Underperforming KPIs by Department (At Risk)</div>
+                    <div class="card-body chart-wrapper"><canvas id="underperformingKpisChart"></canvas></div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6 mb-4">
+            <div class="col-lg-12 mb-4">
                 <div class="card summary-kpi-card h-100">
-                    <div class="card-header">Monthly Revenue Trend</div>
-                    <div class="card-body chart-wrapper chart-wrapper-large"><canvas id="monthlyRevenueChart"></canvas></div>
-                </div>
-            </div>
-            <div class="col-lg-6 mb-4">
-                <div class="card summary-kpi-card h-100">
-                    <div class="card-header">Quarterly Revenue Performance</div>
-                    <div class="card-body chart-wrapper chart-wrapper-large"><canvas id="quarterlyRevenueChart"></canvas></div>
+                    <div class="card-header">KPI Achievement Trends</div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="trendFilter">Filter by:</label>
+                            <select class="form-control form-control-sm" id="trendFilter">
+                                <option value="all">All</option>
+                                <option value="department">Department</option>
+                                <option value="staff">Staff</option>
+                                <option value="kpi">Specific KPI</option>
+                            </select>
+                            </div>
+                        <div class="chart-wrapper chart-wrapper-large"><canvas id="kpiTrendChart"></canvas></div>
+                    </div>
                 </div>
             </div>
         </div>
