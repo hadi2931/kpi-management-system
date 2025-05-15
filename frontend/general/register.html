@@ -69,6 +69,12 @@
         }
         .alert-danger { background-color: #f04747; }
         .alert-success { background-color: #43b581; }
+        .register-card .form-group select.form-control {
+            padding-top: 0.3rem;
+            padding-bottom: 0.3rem;
+            font-size: 0.9rem;
+            height: auto; 
+        }
     </style>
 </head>
 <body>
@@ -96,6 +102,14 @@
                 <div class="form-group">
                     <label for="confirmPassword"><i class="fas fa-redo-alt mr-2"></i>Confirm Password</label>
                     <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password" required>
+                </div>
+                <div class="form-group">
+                    <label for="role"><i class="fas fa-user-tag mr-2"></i>Role</label>
+                    <select class="form-control" id="role" required>
+                        <option value="">Select Role</option>
+                        <option value="manager">Manager</option>
+                        <option value="staff">Staff</option>
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block mt-4">Register</button>
                 <hr style="background-color: #40444b;">

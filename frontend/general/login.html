@@ -6,8 +6,7 @@
     <title>Login - KPI Management System</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- Assuming a general style or a login-specific style -->
-    <link rel="stylesheet" href="register_style.css"> 
+    <link rel="stylesheet" href="register_style.css">
     <style>
         body {
             display: flex;
@@ -71,6 +70,14 @@
             color: #ffffff;
             border-color: #f04747;
         }
+
+        /* Specific styling for the select dropdown */
+        .login-card .form-group select.form-control {
+            padding-top: 0.3rem;
+            padding-bottom: 0.3rem;
+            font-size: 0.9rem;
+            height: auto; /* Override any default height */
+        }
     </style>
 </head>
 <body>
@@ -81,8 +88,7 @@
         <div class="card-body">
             <form id="loginForm">
                 <div id="errorMessage" class="alert alert-danger" style="display: none;" role="alert">
-                    <!-- Error messages appear here -->
-                </div>
+                    </div>
                 <div class="form-group">
                     <label for="email"><i class="fas fa-envelope mr-2"></i>Email address</label>
                     <input type="email" class="form-control" id="email" placeholder="Enter email" required>
@@ -90,6 +96,14 @@
                 <div class="form-group">
                     <label for="password"><i class="fas fa-lock mr-2"></i>Password</label>
                     <input type="password" class="form-control" id="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <label for="role"><i class="fas fa-user-tag mr-2"></i>Role</label>
+                    <select class="form-control" id="role" required>
+                        <option value="">Select Role</option>
+                        <option value="manager">Manager</option>
+                        <option value="staff">Staff</option>
+                    </select>
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="rememberMe">
@@ -130,7 +144,7 @@
             if (email && password) {
                 errorMessageDiv.style.display = 'none';
                 console.log('Login successful (mock), redirecting...');
-                
+
                 // **THIS IS THE CORRECTED REDIRECTION LINE:**
                 // It navigates from /frontend/general/login.html
                 // to /frontend/dashboard_summary/dashboard.html
